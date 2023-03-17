@@ -1,8 +1,11 @@
+import css from './FeedbackOptions.module.css';
+import PropTypes from 'prop-types';
+
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <div>
+    <div className={css.Div}>
       <h1>Please leave a feadback</h1>
-      <div className="fedbackButtons">
+      <div className={css.feedbackDiv}>
         <ul>
           {options.map(option => (
             <button
@@ -20,4 +23,9 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   );
 };
 
+FeedbackOptions.propTypes = {
+	options: PropTypes.object.isRequired,
+	onLeaveFeedback: PropTypes.func.isRequired,
+  };
+  
 export default FeedbackOptions;
