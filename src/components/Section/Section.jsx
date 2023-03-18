@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-const Section = ({children}) => (
-	<section title={children.type.name}>
+const Section = ({children,title}) => (
+	<section title={title}>
 		{children}
   	</section>
 )

@@ -1,4 +1,4 @@
-const Notification = () => (
+const Notification = ({message}) => (
 		<p style={{
 			margin: 8,
 			padding: "12px 16px",
@@ -8,7 +8,7 @@ const Notification = () => (
 			display: "flex",
 			justifyContent: "center",
 		  }}>
-			There is no feedback
+			{message}
 		</p>
 )
 

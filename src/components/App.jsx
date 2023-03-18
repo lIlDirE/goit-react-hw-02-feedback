@@ -11,36 +11,44 @@ export class App extends Component {
     bad: 0,
   };
 
+  // const { good, bad, neutral } = this.state;
+
   handleFeedback = evt => {
     this.setState(prevState => ({
       [evt.target.name]: prevState[evt.target.name] + 1,
     }));
   };
 
+  total = () => {
+      const { good, bad, neutral } = this.state
+        return good + bad + neutral
+  }
+
+  positivePercentage = ({good}) => {
+    return +((good / this.total()) * 100).toFixed(1)
+  }
+
   render() {
-    const { good, bad, neutral } = this.state;
-    const total = good + bad + neutral;
-    const positivePercentage = (good / total) * 100;
     return (
       <div>
-		<Section>
+		<Section title="FeedbackOptions">
 			<FeedbackOptions
 			options={Object.keys(this.state)}
 			onLeaveFeedback={this.handleFeedback}
 			/>
 		</Section>
-		{total > 0 ? (
-		<Section>
+		{this.total() > 0 ? (
+		<Section title="Statistics">
 			<Statistics
-			good={good}
-			neutral={neutral}
-			bad={bad}
-			total={total}
-			positivePercentage={positivePercentage}
+			good={this.state.good}
+			neutral={this.state.neutral}
+			bad={this.state.bad}
+			total={this.total()}
+			positivePercentage={this.positivePercentage(this.state)}
 			/>
 		</Section>
       ) : (
-        <Notification />
+        <Notification message="There is no feedback"/>
       )}
       </div>
     );

@@ -9,15 +9,15 @@ const Satistics = ({bad, good, neutral, positivePercentage, total}) => {
 		<p>Neutral: {neutral}</p>
 		<p>Bad: {bad}</p>
 		<p>Total: {total}</p>
-		<p>Positive feadback: {positivePercentage}</p>
+		<p>Positive feadback: {positivePercentage}%</p>
 		</div>
 	);
 };
 
 Satistics.propTypes = {
-	bad: PropTypes.string.isRequired,
-	good: PropTypes.string.isRequired,
-	neutral: PropTypes.string.isRequired,
+	bad: PropTypes.number.isRequired,
+	good: PropTypes.number.isRequired,
+	neutral: PropTypes.number.isRequired,
 	positivePercentage: PropTypes.number.isRequired,
 	total: PropTypes.number.isRequired,
   };
