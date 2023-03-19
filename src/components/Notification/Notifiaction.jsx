@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Notification = ({message}) => (
 		<p style={{
 			margin: 8,
@@ -11,5 +13,9 @@ const Notification = ({message}) => (
 			{message}
 		</p>
 )
+
+Notification.propTypes = {
+	message: PropTypes.string.isRequired
+}
 
 export default Notification;
